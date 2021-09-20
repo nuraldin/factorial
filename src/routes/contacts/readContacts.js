@@ -1,5 +1,5 @@
-import ReadResponse from "../../models/response/ReadResponse";
-import { parseError } from "../../services/utils/parseError";
+import ReadResponse from "../../models/response/ReadResponse.js";
+import { parseError } from "../../services/utils/parseError.js";
 
 const readContacts = async (req, res) => {
     const models = req.app.get('models');

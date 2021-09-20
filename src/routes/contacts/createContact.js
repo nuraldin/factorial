@@ -1,10 +1,10 @@
-import CreateResponse from "../../models/response/CreateResponse";
+import CreateResponse from "../../models/response/CreateResponse.js";
 
 const createContact = async (req, res) => {
     const models = req.app.get('models');
+    
     let body = new CreateResponse();
     let status = 201;
-
     try {
       const payload = validateBody(req.body);
 

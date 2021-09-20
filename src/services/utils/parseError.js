@@ -1,5 +1,5 @@
 import ErrorResponse from '../../models/response/ErrorResponse.js';
-import ValidationError from '../../models/ValidationError.js';
+import ValidationError from '../../models/errors/ValidationError.js';
 
 function parseError(e) {
     let body, status = 400;

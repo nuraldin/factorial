@@ -1,6 +1,6 @@
 class ReadResponse {
   constructor(message, payload = {}) {
-    this.message = message || `The contacts were successfully`;
+    this.message = message || `Read of resource was successfull`;
     this.payload = payload;
   }
 }

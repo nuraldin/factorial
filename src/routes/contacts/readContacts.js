@@ -1,17 +1,19 @@
-const readContacts = async (req, res, next) => {
+import ReadResponse from "../../models/response/ReadResponse";
+import { parseError } from "../../services/utils/parseError";
+
+const readContacts = async (req, res) => {
     const models = req.app.get('models');
-    const id = req.params.id;
-
-    let query = id ? { _id: id } : {};
-
-    let contacts;
+    
+    let body = new ReadResponse(); 
+    let status = 200;
     try {
-      contacts = await models.CurrentContact.find(query);
+      body.payload = await models.CurrentContact.find({});
     } catch(e) {
-      return res.status(500).send("Something while fetching contacts");
+      console.log(e);
+      [status, body] = parseError(e);
     }
 
-    return res.status(200).send(contacts);
+    res.status(status).send(body);
 }
 
 export default readContacts;

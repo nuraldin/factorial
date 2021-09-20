@@ -38,7 +38,7 @@ const ContactRevisionSchema = new Schema({
     required: true
   },
   createdDate: {
-    type : Date, 
+    type: Date,
     default: Date.now
   }
 });

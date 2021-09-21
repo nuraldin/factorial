@@ -16,6 +16,7 @@ const updateContact = async (req, res) => {
       payload.revisionCause = RevisionTypes.UPDATED;
       payload.updatedDate = historyDoc.createdDate;
       await models.Contacts.where({_id: payload._id}).update(payload);
+      response.payload = payload;
     } catch(e) {
       console.log(e);
       response = parseError(e);

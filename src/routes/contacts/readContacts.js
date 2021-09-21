@@ -1,19 +1,18 @@
 import ReadResponse from "../../models/response/ReadResponse.js";
-import { parseError } from "../../services/utils/parseError.js";
+import { parseError } from "../../services/utils/index.js";
 
 const readContacts = async (req, res) => {
     const models = req.app.get('models');
     
-    let body = new ReadResponse(); 
-    let status = 200;
+    let response = new ReadResponse(); 
     try {
-      body.payload = await models.CurrentContact.find({});
+      response.payload = await models.Contacts.find({});
     } catch(e) {
       console.log(e);
-      [status, body] = parseError(e);
+      response = parseError(e);
     }
 
-    res.status(status).send(body);
+    res.status(response.status).send(response.body);
 }
 
 export default readContacts;

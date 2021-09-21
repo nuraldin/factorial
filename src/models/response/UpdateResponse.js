@@ -1,6 +1,8 @@
-class UpdateResponse {
+import BaseResponse from "./BaseResponse.js";
+
+class UpdateResponse extends BaseResponse {
   constructor(message) {
-    this.message = message || `The contact was updated successfully`;
+    super(200, message || `The contact was updated successfully`);
   }
 }
 

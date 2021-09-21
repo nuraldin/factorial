@@ -1,6 +1,8 @@
-class DeleteResponse {
+import BaseResponse from "./BaseResponse.js";
+
+class DeleteResponse extends BaseResponse {
   constructor(message) {
-    this.message = message || `The contact was deleted successfully`;
+    super(200, message || `The contact was deleted successfully`);
   }
 }
 

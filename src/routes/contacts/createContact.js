@@ -1,26 +1,22 @@
 import CreateResponse from "../../models/response/CreateResponse.js";
+import saveHistoryRecord from "../../services/saveHistoryRecord.js";
+import { parseError, validateBody } from "../../services/utils/index.js";
 
 const createContact = async (req, res) => {
-    const models = req.app.get('models');
-    
-    let body = new CreateResponse();
-    let status = 201;
-    try {
-      const payload = validateBody(req.body);
+  const models = req.app.get('models');
+  
+  let response = new CreateResponse();
+  try {
+    const validBody = validateBody(req.body);
+    response.payload = await models.Contacts.create(validBody);
+    console.log(response);
+    await saveHistoryRecord(response.payload);
+  } catch(e) {
+    console.log(e);
+    response = parseError(e);
+  }
 
-      let contactDocument = await models.CurrentContact.create(payload);
-
-      let contactObj = contactDocument.toObject();
-      contactObj.contactId = contactObj._id;
-      delete contactObj._id;
-      await models.ContactRevision.create(contactObj);
-      body.payload = contactDocument;
-    } catch(e) {
-      console.log(e);
-      [ status, body ] = parseError(e);
-    }
-
-    res.status(status).send(body);
+  res.status(response.status).send(response.body);
 }
 
 export default createContact;

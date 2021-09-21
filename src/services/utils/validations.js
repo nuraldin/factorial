@@ -1,4 +1,4 @@
-import ValidationError from '../../models/ValidationError.js';
+import ValidationError from '../../models/errors/ValidationError.js';
 
 function validateBody( body ) {
   if ( body.constructor === Object && Object.keys(body).length === 0) {
@@ -8,6 +8,4 @@ function validateBody( body ) {
   return body;
 }
 
-export {
-  validateBody
-};
+export default validateBody;

@@ -1,7 +1,8 @@
-class ReadResponse {
-  constructor(message, payload = {}) {
-    this.message = message || `Read of resource was successfull`;
-    this.payload = payload;
+import BaseResponse from "./BaseResponse.js";
+
+class ReadResponse extends BaseResponse {
+  constructor(message) {
+    super(200, message || `Read of resource was successfull`);
   }
 }
 

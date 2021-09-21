@@ -1,6 +1,8 @@
-class ErrorResponse {
+import BaseResponse from "./BaseResponse.js";
+
+class ErrorResponse extends BaseResponse {
   constructor(message) {
-    this.message = message || `There was an error in your request`;
+    super(400, message || `There was an error in your request` );
   }
 }
 

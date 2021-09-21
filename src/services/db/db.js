@@ -13,11 +13,11 @@ export default async function startDB(user = 'user', password = 'password') {
   });
 
   const db = mongoose.connection;
-  const Contact = db.model('CurrentContact', ContactSchema);
+  const Contacts = db.model('CurrentContact', ContactSchema);
   const History = db.model('ContactRevision', ContactRevisionSchema);
 
   return {
-    Contact,
+    Contacts,
     History
   };
 }

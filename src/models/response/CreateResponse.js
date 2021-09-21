@@ -1,7 +1,8 @@
-class CreateResponse {
-  constructor(message, payload = {}) {
-    this.message = message || `The contact was created successfully`;
-    this.payload = payload;
+import BaseResponse from "./BaseResponse.js";
+
+class CreateResponse extends BaseResponse {
+  constructor(message) {
+    super(201, message || `The contact was created successfully`);
   }
 }
 

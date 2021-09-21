@@ -4,7 +4,7 @@ import RevisionTypes from "./RevisionTypes.js";
 
 const Schema = mongoose.Schema;
 
-const ContactRevisionSchema = new Schema({
+const RevisionRecordSchema = new Schema({
   contactId: {
     type: String,
   },
@@ -36,4 +36,4 @@ const ContactRevisionSchema = new Schema({
   }
 });
 
-export default ContactRevisionSchema;
+export default RevisionRecordSchema;

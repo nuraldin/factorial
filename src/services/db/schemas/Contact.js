@@ -4,7 +4,7 @@ import RevisionTypes from "./RevisionTypes.js";
 
 const Schema = mongoose.Schema;
 
-const CurrentContactSchema = new Schema({
+const ContactSchema = new Schema({
   firstName: {
     type: String,
     required: true
@@ -42,4 +42,4 @@ const CurrentContactSchema = new Schema({
   }
 });
 
-export default CurrentContactSchema;
+export default ContactSchema;

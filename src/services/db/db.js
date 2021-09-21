@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 import ContactSchema from './schemas/Contact.js';
-import ContactRevisionSchema from './schemas/ContactRevision.js';
+import RevisionRecordSchema from './schemas/RevisionRecord.js';
 
 export default async function startDB(user = 'user', password = 'password') {
   await mongoose.connect(
@@ -13,8 +13,8 @@ export default async function startDB(user = 'user', password = 'password') {
   });
 
   const db = mongoose.connection;
-  const Contacts = db.model('CurrentContact', ContactSchema);
-  const History = db.model('ContactRevision', ContactRevisionSchema);
+  const Contacts = db.model('Contact', ContactSchema);
+  const History = db.model('RevisionRecord', RevisionRecordSchema);
 
   return {
     Contacts,

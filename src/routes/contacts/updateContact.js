@@ -11,9 +11,8 @@ const updateContact = async (req, res) => {
       const payload = validateBody(req.body);
       let contactDoc = await models.Contacts.findById(payload._id);
       let historyDoc = await saveHistoryRecord(contactDoc, RevisionTypes.UPDATED);
-      
       // update contact
-      payload.revision = currentContact.revision + 1;
+      payload.revision = contactDoc.revision + 1;
       payload.revisionCause = RevisionTypes.UPDATED;
       payload.updatedDate = historyDoc.createdDate;
       await models.Contacts.where({_id: payload._id}).update(payload);

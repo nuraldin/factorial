@@ -5,7 +5,8 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start:local": "node app.js"
+    "start:local": "node app.js",
+    "watch": "nodemon app.js"
   },
   "author": "Santiago Martin",
   "license": "ISC",
@@ -16,5 +17,8 @@
     "express-pino-logger": "^6.0.0",
     "mongodb": "^4.1.0",
     "mongoose": "^5.13.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
   }
 }

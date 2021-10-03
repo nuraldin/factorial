@@ -8,6 +8,7 @@ const saveHistoryRecord = async (contactDoc, revisionType = RevisionTypes.CREATE
   contactObj.revisionCause = revisionType;
   delete contactObj._id;
   delete contactObj.updatedDate;
+  delete contactObj.createdDate;
   return await models.History.create(contactObj);
 }
 

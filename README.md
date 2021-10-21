@@ -3,9 +3,9 @@
 factorial tech assesment back-end using Javascript and Node.js.
 
 Stack: 
-  Database -> MongoDB
-  ORM -> Mongoose
-  Server -> Express.js
+  - Database -> MongoDB
+  - ORM -> Mongoose
+  - Server -> Express.js
 
 ## How to run the server
 
